@@ -5,7 +5,7 @@ namespace Tic_Tac_Toe
     /// <summary>
     /// Class of player
     /// </summary>
-    sealed class Player
+    public sealed class Player
     {
         /// <summary>
         /// Sign of player

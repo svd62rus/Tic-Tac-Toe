@@ -5,7 +5,7 @@ namespace Tic_Tac_Toe
     /// <summary>
     /// Abstract base class of game
     /// </summary>
-    abstract class Game
+    public abstract class Game
     {
         /// <summary>
         /// Delegate of current player state

@@ -3,13 +3,14 @@ using System.Drawing;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
+using Tic_Tac_Toe.Utilites;
 
 namespace Tic_Tac_Toe
 {
     /// <summary>
     /// Form class
     /// </summary>
-    public partial class MainForm : Form
+    public partial class MainForm : Form, IMainForm
     {
         /// <summary>
         /// Parameters variable
@@ -37,11 +38,30 @@ namespace Tic_Tac_Toe
         public MainForm()
         {
             InitializeComponent();
-            GamePanel.Visible = false;
+            ChangeGamePanelVisible(false);
             gameFieldButtons = new Button[9]
             {
                 Button0, Button1, Button2, Button3, Button4, Button5, Button6, Button7, Button8
             };
+        }
+
+        public bool GetGamePanelStatus()
+        {
+            return GamePanel.Visible;
+        }
+
+        public int GetGameFieldFieldButtonsCount()
+        {
+            return gameFieldButtons.Length;
+        }
+
+        public bool ChangeEnabledStateNow(string player)
+        {
+            if (player == "Player1")
+                Enabled = true;
+            else
+                Enabled = false;
+            return Enabled;
         }
         /// <summary>
         /// Click on low difficult method
@@ -50,10 +70,15 @@ namespace Tic_Tac_Toe
         /// <param name="e">Event</param>
         private void LowDifficult_Click(object sender, EventArgs e)
         {
-            GamePanel.Visible = true;
+            ChangeGamePanelVisible(true);
             ChangeButtonColor();
             StartGame(Game.Difficults.Low);
             ShowParameters();
+        }
+        public bool ChangeGamePanelVisible(bool state)
+        {
+            GamePanel.Visible = state;
+            return state;
         }
         /// <summary>
         /// Click on hard difficult method
@@ -216,6 +241,17 @@ namespace Tic_Tac_Toe
         {
             for (int i = 0; i < gameFieldButtons.Length; i++)
                     gameFieldButtons[i].BackColor = Color.LightGray;
+        }
+        public int GetCountDefaultColorButtons()
+        {
+            ChangeButtonColor();
+            var count = 0;
+            foreach (Button button in gameFieldButtons)
+            {
+                if (button.BackColor == Color.LightGray)
+                    count++;
+            }
+            return count;
         }
         /// <summary>
         /// Main form load event method

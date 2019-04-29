@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Tic Tac Toe.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -66,6 +67,8 @@
     <Compile Include="SaveLoadProfile.cs" />
     <Compile Include="SinglePlayer.cs" />
     <Compile Include="Parameters.cs" />
+    <Compile Include="Utilites\IMainForm.cs" />
+    <Compile Include="Utilites\ISinglePlayer.cs" />
     <EmbeddedResource Include="AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using Tic_Tac_Toe.Utilites;
 
 namespace Tic_Tac_Toe
 {
     /// <summary>
     /// Class of single player game
     /// </summary>
-    sealed class SinglePlayer : Game
+    public sealed class SinglePlayer : Game, ISinglePlayer
     {
         /// <summary>
         /// Massive of corners index
@@ -55,6 +56,46 @@ namespace Tic_Tac_Toe
             }
             SelectPlayers();
             ClearGameField();
+        }
+
+        public Enum GetGameType()
+        {
+            return GameType;
+        }
+
+        public Enum GetGameDifficult()
+        {
+            return Difficult;
+        }
+        public string GetLogicName()
+        {
+            return logic.Method.Name;
+        }
+
+        public Player GetCurrentPlayer()
+        {
+            return CurrentPlayer;
+        }
+
+        public Enum GetTypeOfPlayer(Player player)
+        {
+            return player.TypeOfPlayer;
+        }
+
+        public string GetPlayerSign(Player player)
+        {
+            return player.PlayerSign;
+        }
+
+        public int GetCountOfEmptyFields()
+        {
+            var count = 0;
+            foreach(string field in GameField)
+            {
+                if (field == empty)
+                    count++;
+            }
+            return count;
         }
         /// <summary>
         /// Override select players method
