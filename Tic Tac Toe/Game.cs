@@ -157,14 +157,14 @@ namespace Tic_Tac_Toe
             {
                 CheckGameFieldOnWinCombination();
             }
-            else
+            else if (!CheckGameFieldOnWinCombination())
             {
                 GameInProgress = false;
                 Draw("Draw");
             }            
         }
 
-        private void CheckGameFieldOnWinCombination()
+        private bool CheckGameFieldOnWinCombination()
         {
             for (int i = 0; i < WinPositions.Length; i++)
             {
@@ -187,9 +187,10 @@ namespace Tic_Tac_Toe
                         Win(Player2.TypeOfPlayer.ToString());
                     }
                     GameInProgress = false;
-                    break;
+                    return true;
                 }
             }
+            return false;
         }
     }
 }
