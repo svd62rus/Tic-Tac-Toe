@@ -155,38 +155,41 @@ namespace Tic_Tac_Toe
         {
             if (freeCells > 0)
             {
-                for (int i = 0; i < WinPositions.Length; i++)
-                {
-                    var firstIndex = int.Parse(WinPositions[i].Substring(0, 1));
-                    var secondIndex = int.Parse(WinPositions[i].Substring(1, 1));
-                    var thirdIndex = int.Parse(WinPositions[i].Substring(2, 1));
-                    if (GameField[firstIndex] != empty &&
-                        GameField[firstIndex] == GameField[secondIndex] &&
-                        GameField[firstIndex] == GameField[thirdIndex])
-                    {
-                        WinIndexes = new int [3] {firstIndex,secondIndex,thirdIndex};
-                        if (GameField[firstIndex] == Player1.PlayerSign)
-                        {
-                            Winner = Player1;
-                            Win(Player1.TypeOfPlayer.ToString());
-                        }
-                        else
-                        {
-                            Winner = Player2;
-                            Win(Player2.TypeOfPlayer.ToString());
-                        }   
-                        GameInProgress = false;
-                        break;
-
-                    }
-                }
+                CheckGameFieldOnWinCombination();
             }
             else
             {
                 GameInProgress = false;
                 Draw("Draw");
+            }            
+        }
+
+        private void CheckGameFieldOnWinCombination()
+        {
+            for (int i = 0; i < WinPositions.Length; i++)
+            {
+                var firstIndex = int.Parse(WinPositions[i].Substring(0, 1));
+                var secondIndex = int.Parse(WinPositions[i].Substring(1, 1));
+                var thirdIndex = int.Parse(WinPositions[i].Substring(2, 1));
+                if (GameField[firstIndex] != empty &&
+                    GameField[firstIndex] == GameField[secondIndex] &&
+                    GameField[firstIndex] == GameField[thirdIndex])
+                {
+                    WinIndexes = new int[3] { firstIndex, secondIndex, thirdIndex };
+                    if (GameField[firstIndex] == Player1.PlayerSign)
+                    {
+                        Winner = Player1;
+                        Win(Player1.TypeOfPlayer.ToString());
+                    }
+                    else
+                    {
+                        Winner = Player2;
+                        Win(Player2.TypeOfPlayer.ToString());
+                    }
+                    GameInProgress = false;
+                    break;
+                }
             }
-            
         }
     }
 }
