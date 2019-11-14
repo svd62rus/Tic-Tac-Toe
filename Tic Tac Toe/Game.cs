@@ -163,7 +163,10 @@ namespace Tic_Tac_Toe
                 Draw("Draw");
             }            
         }
-
+        /// <summary>
+        /// Check gamefield on win combinations method
+        /// </summary>
+        /// <returns>Gamefield contains or not contains win combinations (true/false)</returns>
         private bool CheckGameFieldOnWinCombination()
         {
             for (int i = 0; i < WinPositions.Length; i++)
