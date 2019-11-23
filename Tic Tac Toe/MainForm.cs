@@ -25,10 +25,6 @@ namespace Tic_Tac_Toe
         /// </summary>
         private Button[] gameFieldButtons;
         /// <summary>
-        /// Name of save file
-        /// </summary>
-        public static string FileSavesName { get;}= "save.xml";
-        /// <summary>
         /// Game profile for save statistic and information
         /// </summary>
         public GameProfile profile = new GameProfile();
@@ -260,7 +256,7 @@ namespace Tic_Tac_Toe
         /// <param name="e">Event</param>
         private void MainForm_Load(object sender, EventArgs e)
         {
-            if (!File.Exists(FileSavesName))
+            if (!File.Exists(SaveLoadProfile.FileSavesName))
             {
                 AddUser addUserForm = new AddUser(profile);
                 addUserForm.ShowDialog();

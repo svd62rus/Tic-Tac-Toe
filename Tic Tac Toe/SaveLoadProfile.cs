@@ -9,13 +9,17 @@ namespace Tic_Tac_Toe
     static class SaveLoadProfile
     {
         /// <summary>
+        /// Name of save file
+        /// </summary>
+        public static string FileSavesName { get; } = "save.xml";
+        /// <summary>
         /// Save to file method
         /// </summary>
         /// <param name="profile"></param>
         public static void Save(GameProfile profile)
         {
             XmlSerializer formatter = new XmlSerializer(typeof(GameProfile));
-            using (FileStream fs = new FileStream(MainForm.FileSavesName, FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(FileSavesName, FileMode.OpenOrCreate))
                     formatter.Serialize(fs, profile);
         }
         /// <summary>
@@ -26,7 +30,7 @@ namespace Tic_Tac_Toe
         {
             GameProfile profile = new GameProfile();
             XmlSerializer formatter = new XmlSerializer(typeof(GameProfile));
-            using (FileStream fs = new FileStream(MainForm.FileSavesName, FileMode.Open))
+            using (FileStream fs = new FileStream(FileSavesName, FileMode.Open))
             {
                 profile = (GameProfile)formatter.Deserialize(fs);
             }
