@@ -256,7 +256,7 @@ namespace Tic_Tac_Toe
         /// <param name="e">Event</param>
         private void MainForm_Load(object sender, EventArgs e)
         {
-            if (!File.Exists(SaveLoadProfile.FileSavesName))
+            if (!SaveLoadProfile.CheckExistFileSave())
             {
                 AddUser addUserForm = new AddUser(profile);
                 addUserForm.ShowDialog();
