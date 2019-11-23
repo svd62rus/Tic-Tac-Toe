@@ -52,6 +52,7 @@
     <Compile Include="AddUser.Designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameDataBus.cs" />
     <Compile Include="GameProfile.cs" />
     <Compile Include="GameResults.cs" />
     <Compile Include="MainForm.cs">
@@ -62,6 +63,7 @@
     </Compile>
     <Compile Include="Game.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="ProfileActionResult.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SaveLoadProfile.cs" />

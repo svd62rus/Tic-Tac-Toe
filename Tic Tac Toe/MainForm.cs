@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 using Tic_Tac_Toe.Utilites;
@@ -117,7 +116,7 @@ namespace Tic_Tac_Toe
         {
             Enabled = true;
             profile.Draw(game.Difficult.ToString());
-            SaveLoadProfile.Save(profile);
+            GameDataBus.SaveGameResultInStatistic(profile);
             DeleteSubscribes();
             MessageBox.Show(result);
             GamePanel.Visible = false;
@@ -132,13 +131,13 @@ namespace Tic_Tac_Toe
             if (game.Winner == game.Player1)
             {
                 profile.Win(game.Difficult.ToString());
-                SaveLoadProfile.Save(profile);
+                GameDataBus.SaveGameResultInStatistic(profile);
                 ChangeButtonColor(Color.Green);
             }
             else
             {
                 profile.Lose(game.Difficult.ToString());
-                SaveLoadProfile.Save(profile);
+                GameDataBus.SaveGameResultInStatistic(profile);
                 ChangeButtonColor(Color.Red);
             }
             MessageBox.Show(result + " win!");
@@ -263,10 +262,8 @@ namespace Tic_Tac_Toe
             }
             else
             {
-                profile = SaveLoadProfile.Load();
+                profile = GameDataBus.LoadGameResultInStatistic();
             }
-            if (string.IsNullOrEmpty(profile.PlayerName))
-                Close();
         }
         /// <summary>
         /// Main form exit event method
@@ -275,7 +272,7 @@ namespace Tic_Tac_Toe
         /// <param name="e">Event</param>
         private void ExitMenu_Click(object sender, EventArgs e)
         {
-            SaveLoadProfile.Save(profile);
+            GameDataBus.SaveGameResultInStatistic(profile);
             Application.Exit();
         }
         /// <summary>
