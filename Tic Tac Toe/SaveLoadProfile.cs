@@ -13,6 +13,11 @@ namespace Tic_Tac_Toe
         /// Name of save file
         /// </summary>
         private static string fileSavesName { get; } = "save.xml";
+        /// <summary>
+        /// Load file stream method
+        /// </summary>
+        /// <param name="formatter">Xml serializer</param>
+        /// <returns>Result of load file stream</returns>
         private static ProfileActionResult LoadFileStream(XmlSerializer formatter)
         {
             ProfileActionResult actionResult = new ProfileActionResult();
@@ -23,6 +28,11 @@ namespace Tic_Tac_Toe
             }
             return actionResult;
         }
+        /// <summary>
+        /// Load profile method
+        /// </summary>
+        /// <param name="formatter">Xml serializer</param>
+        /// <returns>Result of load profile</returns>
         private static ProfileActionResult LoadProfile(XmlSerializer formatter)
         { 
             try
@@ -34,6 +44,12 @@ namespace Tic_Tac_Toe
                 return GetFaultedResult();
             }
         }
+        /// <summary>
+        /// Save file stream method
+        /// </summary>
+        /// <param name="formatter">Xml serializer</param>
+        /// <param name="profile">Game profile</param>
+        /// <returns>Result of save file stream</returns>
         private static ProfileActionResult SaveFileStream(XmlSerializer formatter, GameProfile profile)
         {
             ProfileActionResult actionResult = new ProfileActionResult();
@@ -44,6 +60,12 @@ namespace Tic_Tac_Toe
             }
             return actionResult;
         }
+        /// <summary>
+        /// Save profile method
+        /// </summary>
+        /// <param name="formatter">Xml serializer</param>
+        /// <param name="profile">Game profile</param>
+        /// <returns>Result of save profile</returns>
         private static ProfileActionResult SaveProfile(XmlSerializer formatter, GameProfile profile)
         {
             try
@@ -55,6 +77,10 @@ namespace Tic_Tac_Toe
                 return GetFaultedResult();
             }
         }
+        /// <summary>
+        /// Create faulted result
+        /// </summary>
+        /// <returns>Result of faulted action on profile</returns>
         private static ProfileActionResult GetFaultedResult()
         {
             ProfileActionResult actionResult = new ProfileActionResult();
@@ -65,7 +91,7 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Save to file method
         /// </summary>
-        /// <param name="profile"></param>
+        /// <param name="profile">Game profile</param>
         public static ProfileActionResult Save(GameProfile profile)
         {
             XmlSerializer formatter = new XmlSerializer(typeof(GameProfile));
@@ -74,7 +100,6 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Load of file method
         /// </summary>
-        /// <param name="profile"></param>
         public static ProfileActionResult Load()
         {
             GameProfile profile = new GameProfile();
