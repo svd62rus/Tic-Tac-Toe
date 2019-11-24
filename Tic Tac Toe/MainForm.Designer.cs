@@ -46,7 +46,7 @@
             this.LowDifficult = new System.Windows.Forms.ToolStripMenuItem();
             this.HardDifficult = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.StatisticMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.ScoreMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.GamePanel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -191,7 +191,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MainMenu,
-            this.StatisticMenu});
+            this.ScoreMenu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(384, 24);
@@ -213,36 +213,36 @@
             this.LowDifficult,
             this.HardDifficult});
             this.SinglePlayerMenu.Name = "SinglePlayerMenu";
-            this.SinglePlayerMenu.Size = new System.Drawing.Size(180, 22);
+            this.SinglePlayerMenu.Size = new System.Drawing.Size(139, 22);
             this.SinglePlayerMenu.Text = "Single game";
             // 
             // LowDifficult
             // 
             this.LowDifficult.Name = "LowDifficult";
-            this.LowDifficult.Size = new System.Drawing.Size(180, 22);
+            this.LowDifficult.Size = new System.Drawing.Size(100, 22);
             this.LowDifficult.Text = "Low";
             this.LowDifficult.Click += new System.EventHandler(this.LowDifficult_Click);
             // 
             // HardDifficult
             // 
             this.HardDifficult.Name = "HardDifficult";
-            this.HardDifficult.Size = new System.Drawing.Size(180, 22);
+            this.HardDifficult.Size = new System.Drawing.Size(100, 22);
             this.HardDifficult.Text = "Hard";
             this.HardDifficult.Click += new System.EventHandler(this.HardDifficult_Click);
             // 
             // ExitMenu
             // 
             this.ExitMenu.Name = "ExitMenu";
-            this.ExitMenu.Size = new System.Drawing.Size(180, 22);
+            this.ExitMenu.Size = new System.Drawing.Size(139, 22);
             this.ExitMenu.Text = "Exit";
             this.ExitMenu.Click += new System.EventHandler(this.ExitMenu_Click);
             // 
-            // StatisticMenu
+            // ScoreMenu
             // 
-            this.StatisticMenu.Name = "StatisticMenu";
-            this.StatisticMenu.Size = new System.Drawing.Size(60, 20);
-            this.StatisticMenu.Text = "Statistic";
-            this.StatisticMenu.Click += new System.EventHandler(this.StatisticMenu_Click);
+            this.ScoreMenu.Name = "ScoreMenu";
+            this.ScoreMenu.Size = new System.Drawing.Size(48, 20);
+            this.ScoreMenu.Text = "Score";
+            this.ScoreMenu.Click += new System.EventHandler(this.ScoreMenu_Click);
             // 
             // MainForm
             // 
@@ -287,7 +287,7 @@
         private System.Windows.Forms.Label GameInfoLabel;
         private System.Windows.Forms.Label PlayerInfoLabel;
         private System.Windows.Forms.ToolStripMenuItem ExitMenu;
-        private System.Windows.Forms.ToolStripMenuItem StatisticMenu;
+        private System.Windows.Forms.ToolStripMenuItem ScoreMenu;
     }
 }
 

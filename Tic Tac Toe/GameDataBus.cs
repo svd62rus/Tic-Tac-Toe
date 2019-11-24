@@ -8,29 +8,44 @@ namespace Tic_Tac_Toe
     static class GameDataBus
     {
         /// <summary>
-        /// Save game result in statistic method
+        /// Save game result in score method
         /// </summary>
         /// <param name="profile">Game profile</param>
-        public static void SaveGameResultInStatistic(GameProfile profile)
+        public static void SaveGameResultInScore(GameProfile profile)
         {
             var saveResult = SaveLoadProfile.Save(profile);
             if (saveResult.IsError)
             {
-                MessageBox.Show("Error of file save saving! Statistic is not changed", "Error!");
+                MessageBox.Show("Error of file save saving! Score is dropped.", "Error!");
             }
         }/// <summary>
-        /// Load game result in statistic method
+        /// Load game result in score method
         /// </summary>
         /// <returns>Game profile</returns>
-        public static GameProfile LoadGameResultInStatistic()
+        public static GameProfile LoadGameResultInScore()
         {
             var loadResult = SaveLoadProfile.Load();
             if (loadResult.IsError)
             {
-                MessageBox.Show("Error of file save loading! Statistic is dropped.", "Error!");
+                MessageBox.Show("Error of file save loading! Score is dropped.", "Error!");
             }
             return loadResult.Profile;
         }
-
+        /// <summary>
+        /// Show score method
+        /// </summary>
+        /// <param name="profile">Game profile</param>
+        public static void ShowScore(GameProfile profile)
+        {
+            MessageBox.Show($"Profile: {profile.PlayerName}\n\n\n" +
+                               $"--Low difficult--\n" +
+                               $"Win: {profile.LowLevelScore.Win}\n" +
+                               $"Lose: {profile.LowLevelScore.Lose}\n" +
+                               $"Draw: {profile.LowLevelScore.Draw}\n\n" +
+                               $"--Hard difficult--\n" +
+                               $"Win: {profile.HardLevelScore.Win}\n" +
+                               $"Lose: {profile.HardLevelScore.Lose}\n" +
+                               $"Draw: {profile.HardLevelScore.Draw}\n", "Score");
+        }
     }
 }

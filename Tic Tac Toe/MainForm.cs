@@ -24,7 +24,7 @@ namespace Tic_Tac_Toe
         /// </summary>
         private Button[] gameFieldButtons;
         /// <summary>
-        /// Game profile for save statistic and information
+        /// Game profile for save score and information
         /// </summary>
         public GameProfile profile = new GameProfile();
         /// <summary>
@@ -116,7 +116,7 @@ namespace Tic_Tac_Toe
         {
             Enabled = true;
             profile.Draw(game.Difficult.ToString());
-            GameDataBus.SaveGameResultInStatistic(profile);
+            GameDataBus.SaveGameResultInScore(profile);
             DeleteSubscribes();
             MessageBox.Show(result);
             GamePanel.Visible = false;
@@ -131,13 +131,13 @@ namespace Tic_Tac_Toe
             if (game.Winner == game.Player1)
             {
                 profile.Win(game.Difficult.ToString());
-                GameDataBus.SaveGameResultInStatistic(profile);
+                GameDataBus.SaveGameResultInScore(profile);
                 ChangeButtonColor(Color.Green);
             }
             else
             {
                 profile.Lose(game.Difficult.ToString());
-                GameDataBus.SaveGameResultInStatistic(profile);
+                GameDataBus.SaveGameResultInScore(profile);
                 ChangeButtonColor(Color.Red);
             }
             MessageBox.Show(result + " win!");
@@ -262,7 +262,7 @@ namespace Tic_Tac_Toe
             }
             else
             {
-                profile = GameDataBus.LoadGameResultInStatistic();
+                profile = GameDataBus.LoadGameResultInScore();
             }
         }
         /// <summary>
@@ -272,25 +272,17 @@ namespace Tic_Tac_Toe
         /// <param name="e">Event</param>
         private void ExitMenu_Click(object sender, EventArgs e)
         {
-            GameDataBus.SaveGameResultInStatistic(profile);
+            GameDataBus.SaveGameResultInScore(profile);
             Application.Exit();
         }
         /// <summary>
-        /// Show game statistic method
+        /// Show game score method
         /// </summary>
         /// <param name="sender">Sender</param>
         /// <param name="e">Param</param>
-        private void StatisticMenu_Click(object sender, EventArgs e)
+        private void ScoreMenu_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"Profile: {profile.PlayerName}\n\n\n" +
-                            $"--Low difficult--\n" +
-                            $"Win: {profile.LowLevelStat.Win}\n" +
-                            $"Lose: {profile.LowLevelStat.Lose}\n" +
-                            $"Draw: {profile.LowLevelStat.Draw}\n\n" +
-                            $"--Hard difficult--\n" +
-                            $"Win: {profile.HardLevelStat.Win}\n" +
-                            $"Lose: {profile.HardLevelStat.Lose}\n" +
-                            $"Draw: {profile.HardLevelStat.Draw}\n");
+            GameDataBus.ShowScore(profile);
         }
     }
 }

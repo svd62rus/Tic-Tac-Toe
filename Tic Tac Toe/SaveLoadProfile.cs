@@ -16,13 +16,13 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Load file stream method
         /// </summary>
-        /// <param name="formatter">Xml serializer</param>
         /// <returns>Result of load file stream</returns>
-        private static ProfileActionResult LoadFileStream(XmlSerializer formatter)
+        private static ProfileActionResult LoadFileStream()
         {
+            XmlSerializer formatter = new XmlSerializer(typeof(GameProfile));
             ProfileActionResult actionResult = new ProfileActionResult();
             using (FileStream fs = new FileStream(fileSavesName, FileMode.Open))
-            {          
+            {
                 actionResult.Profile = (GameProfile)formatter.Deserialize(fs);
                 actionResult.IsError = false;
             }
@@ -31,13 +31,12 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Load profile method
         /// </summary>
-        /// <param name="formatter">Xml serializer</param>
         /// <returns>Result of load profile</returns>
-        private static ProfileActionResult LoadProfile(XmlSerializer formatter)
+        private static ProfileActionResult LoadProfile()
         { 
             try
             {
-                return LoadFileStream(formatter);
+                return LoadFileStream();
             }
             catch (Exception)
             {
@@ -47,11 +46,11 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Save file stream method
         /// </summary>
-        /// <param name="formatter">Xml serializer</param>
         /// <param name="profile">Game profile</param>
         /// <returns>Result of save file stream</returns>
-        private static ProfileActionResult SaveFileStream(XmlSerializer formatter, GameProfile profile)
+        private static ProfileActionResult SaveFileStream(GameProfile profile)
         {
+            XmlSerializer formatter = new XmlSerializer(typeof(GameProfile));
             ProfileActionResult actionResult = new ProfileActionResult();
             using (FileStream fs = new FileStream(fileSavesName, FileMode.OpenOrCreate))
             {
@@ -66,11 +65,11 @@ namespace Tic_Tac_Toe
         /// <param name="formatter">Xml serializer</param>
         /// <param name="profile">Game profile</param>
         /// <returns>Result of save profile</returns>
-        private static ProfileActionResult SaveProfile(XmlSerializer formatter, GameProfile profile)
+        private static ProfileActionResult SaveProfile(GameProfile profile)
         {
             try
             {
-                return SaveFileStream(formatter, profile);
+                return SaveFileStream(profile);
             }
             catch (Exception)
             {
@@ -94,17 +93,14 @@ namespace Tic_Tac_Toe
         /// <param name="profile">Game profile</param>
         public static ProfileActionResult Save(GameProfile profile)
         {
-            XmlSerializer formatter = new XmlSerializer(typeof(GameProfile));
-            return SaveProfile(formatter, profile);
+            return SaveProfile(profile);
         }
         /// <summary>
         /// Load of file method
         /// </summary>
         public static ProfileActionResult Load()
         {
-            GameProfile profile = new GameProfile();
-            XmlSerializer formatter = new XmlSerializer(typeof(GameProfile));
-            return LoadProfile(formatter);
+            return LoadProfile();
         }
         /// <summary>
         /// CheckExistFileSave method
