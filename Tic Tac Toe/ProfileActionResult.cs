@@ -18,6 +18,6 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Result with error or not
         /// </summary>
-        public bool IsError { get; set;}
+        public bool IsError { get; set;} 
     }
 }

@@ -57,36 +57,60 @@ namespace Tic_Tac_Toe
             SelectPlayers();
             ClearGameField();
         }
-
+        /// <summary>
+        /// Get game type method
+        /// </summary>
+        /// <returns>game type</returns>
         public Enum GetGameType()
         {
             return GameType;
         }
-
+        /// <summary>
+        /// Get game difficult method
+        /// </summary>
+        /// <returns>Difficult</returns>
         public Enum GetGameDifficult()
         {
             return Difficult;
         }
+        /// <summary>
+        /// Get logic name method
+        /// </summary>
+        /// <returns>Logic mathod name</returns>
         public string GetLogicName()
         {
             return logic.Method.Name;
         }
-
+        /// <summary>
+        /// Get current player
+        /// </summary>
+        /// <returns>Current player</returns>
         public Player GetCurrentPlayer()
         {
             return CurrentPlayer;
         }
-
+        /// <summary>
+        /// Get type of player method
+        /// </summary>
+        /// <param name="player">Player</param>
+        /// <returns>Type of player</returns>
         public Enum GetTypeOfPlayer(Player player)
         {
             return player.TypeOfPlayer;
         }
-
+        /// <summary>
+        /// Get player sign method
+        /// </summary>
+        /// <param name="player">Player</param>
+        /// <returns>Player sign</returns>
         public string GetPlayerSign(Player player)
         {
             return player.PlayerSign;
         }
-
+        /// <summary>
+        /// Get count of empty fields method
+        /// </summary>
+        /// <returns>Count of empty fields</returns>
         public int GetCountOfEmptyFields()
         {
             var count = 0;

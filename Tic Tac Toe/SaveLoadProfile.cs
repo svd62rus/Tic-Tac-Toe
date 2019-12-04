@@ -12,7 +12,7 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Name of save file
         /// </summary>
-        private static string fileSavesName { get; } = "save.xml";
+        private static string FileSavesName { get; } = "save.xml";
         /// <summary>
         /// Load file stream method
         /// </summary>
@@ -21,7 +21,7 @@ namespace Tic_Tac_Toe
         {
             XmlSerializer formatter = new XmlSerializer(typeof(GameProfile));
             ProfileActionResult actionResult = new ProfileActionResult();
-            using (FileStream fs = new FileStream(fileSavesName, FileMode.Open))
+            using (FileStream fs = new FileStream(FileSavesName, FileMode.Open))
             {
                 actionResult.Profile = (GameProfile)formatter.Deserialize(fs);
                 actionResult.IsError = false;
@@ -52,7 +52,7 @@ namespace Tic_Tac_Toe
         {
             XmlSerializer formatter = new XmlSerializer(typeof(GameProfile));
             ProfileActionResult actionResult = new ProfileActionResult();
-            using (FileStream fs = new FileStream(fileSavesName, FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(FileSavesName, FileMode.OpenOrCreate))
             {
                 formatter.Serialize(fs, profile);
                 actionResult.IsError = false;
@@ -62,7 +62,6 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Save profile method
         /// </summary>
-        /// <param name="formatter">Xml serializer</param>
         /// <param name="profile">Game profile</param>
         /// <returns>Result of save profile</returns>
         private static ProfileActionResult SaveProfile(GameProfile profile)
@@ -82,9 +81,11 @@ namespace Tic_Tac_Toe
         /// <returns>Result of faulted action on profile</returns>
         private static ProfileActionResult GetFaultedResult()
         {
-            ProfileActionResult actionResult = new ProfileActionResult();
-            actionResult.Profile = new GameProfile();
-            actionResult.IsError = true;
+            ProfileActionResult actionResult = new ProfileActionResult
+            {
+                Profile = new GameProfile(),
+                IsError = true
+            };
             return actionResult;
         }
         /// <summary>
@@ -108,7 +109,7 @@ namespace Tic_Tac_Toe
         /// <returns>Exist or not exist file save</returns>
         public static bool CheckExistFileSave()
         {
-            return File.Exists(fileSavesName);
+            return File.Exists(FileSavesName);
         }
     }
 }

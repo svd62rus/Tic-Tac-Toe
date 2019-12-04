@@ -20,6 +20,9 @@ namespace Tic_Tac_Toe
         /// Count of draw
         /// </summary>
         public int Draw { get; set; } = 0;
+        /// <summary>
+        /// Default class constructor
+        /// </summary>
         public GameResults() { }
     }
 }
