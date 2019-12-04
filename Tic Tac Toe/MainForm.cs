@@ -276,7 +276,9 @@ namespace Tic_Tac_Toe
         {
             if (!SaveLoadProfile.CheckExistFileSave())
             {
+#pragma warning disable IDE0067 // Dispose objects before losing scope
                 AddUser addUserForm = new AddUser(profile);
+#pragma warning restore IDE0067 // Dispose objects before losing scope
                 addUserForm.ShowDialog();
             }
             else

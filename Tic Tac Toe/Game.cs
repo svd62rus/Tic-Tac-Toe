@@ -32,18 +32,24 @@ namespace Tic_Tac_Toe
         /// Event "Draw"
         /// </summary>
         public event GameEndingHandler Draw;
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         /// <summary>
         /// Enum fifficults of single player game
         /// </summary>
         public enum Difficults { Low, Hard }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         /// <summary>
         /// Enum game types(modes)
         /// </summary>
         public enum GameTypes { Single, Split, Multi }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         /// <summary>
         /// Enum player types
         /// </summary>
         public enum PlayersType { Human, Computer }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         /// <summary>
         /// Current difficult of game
         /// </summary>
