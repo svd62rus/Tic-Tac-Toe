@@ -39,17 +39,27 @@ namespace Tic_Tac_Toe
                 Button0, Button1, Button2, Button3, Button4, Button5, Button6, Button7, Button8
             };
         }
-
+        /// <summary>
+        /// Get game panel visible status method
+        /// </summary>
+        /// <returns>Visible or not</returns>
         public bool GetGamePanelStatus()
         {
             return GamePanel.Visible;
         }
-
+        /// <summary>
+        /// Get count of gamefield buttons method
+        /// </summary>
+        /// <returns>Count of gamefield buttons</returns>
         public int GetGameFieldFieldButtonsCount()
         {
             return gameFieldButtons.Length;
         }
-
+        /// <summary>
+        /// Change enabled form state method
+        /// </summary>
+        /// <param name="player">Player</param>
+        /// <returns>Enabled or not</returns>
         public bool ChangeEnabledStateNow(string player)
         {
             if (player == "Player1")
@@ -70,6 +80,11 @@ namespace Tic_Tac_Toe
             StartGame(Game.Difficults.Low);
             ShowParameters();
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="state"></param>
+        /// <returns></returns>
         public bool ChangeGamePanelVisible(bool state)
         {
             GamePanel.Visible = state;
@@ -237,6 +252,10 @@ namespace Tic_Tac_Toe
             for (int i = 0; i < gameFieldButtons.Length; i++)
                     gameFieldButtons[i].BackColor = Color.LightGray;
         }
+        /// <summary>
+        /// Get count of buttons with default color method
+        /// </summary>
+        /// <returns>Count of buttons</returns>
         public int GetCountDefaultColorButtons()
         {
             ChangeButtonColor();

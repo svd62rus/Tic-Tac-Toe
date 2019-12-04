@@ -20,6 +20,9 @@ namespace Tic_Tac_Toe
         /// Score for hard difficult games
         /// </summary>
         public GameResults HardLevelScore { get; set; } = new GameResults();
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public GameProfile()
         {
         }
