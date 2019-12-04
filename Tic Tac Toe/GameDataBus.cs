@@ -47,5 +47,23 @@ namespace Tic_Tac_Toe
                                $"Lose: {profile.HardLevelScore.Lose}\n" +
                                $"Draw: {profile.HardLevelScore.Draw}\n", "Score");
         }
+        /// <summary>
+        /// Show game result method
+        /// </summary>
+        /// <param name="result">String result</param>
+        public static void ShowResult(string result)
+        {
+            if(result.Equals("Draw"))
+                MessageBox.Show(result);
+            else
+                MessageBox.Show(result + " win!");
+        }
+        /// <summary>
+        /// Show message about impossible step method
+        /// </summary>
+        public static void ShowImpossibleStepMessage()
+        {
+            MessageBox.Show("Такой ход невозможен!");
+        }
     }
 }

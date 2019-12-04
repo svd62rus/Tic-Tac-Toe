@@ -22,7 +22,7 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Massive of game fields buttons 
         /// </summary>
-        private Button[] gameFieldButtons;
+        private readonly Button[] gameFieldButtons;
         /// <summary>
         /// Game profile for save score and information
         /// </summary>
@@ -133,7 +133,7 @@ namespace Tic_Tac_Toe
             profile.Draw(game.Difficult.ToString());
             GameDataBus.SaveGameResultInScore(profile);
             DeleteSubscribes();
-            MessageBox.Show(result);
+            GameDataBus.ShowResult(result);
             GamePanel.Visible = false;
         }
         /// <summary>
@@ -155,7 +155,7 @@ namespace Tic_Tac_Toe
                 GameDataBus.SaveGameResultInScore(profile);
                 ChangeButtonColor(Color.Red);
             }
-            MessageBox.Show(result + " win!");
+            GameDataBus.ShowResult(result);
             DeleteSubscribes();
             GamePanel.Visible = false;
         }
@@ -211,7 +211,7 @@ namespace Tic_Tac_Toe
             int i = int.Parse(button.Tag.ToString());
             game.PlayerStep(i, out bool isPossible);
             if (!isPossible)
-                MessageBox.Show("Такой ход невозможен!");
+                GameDataBus.ShowImpossibleStepMessage();
             UpdateButtons();
             game.CheckGameStatus();
             if(game.GameInProgress && isPossible)
