@@ -1,6 +1,7 @@
 ﻿using System.Xml.Serialization;
 using System.IO;
 using System;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Tic_Tac_Toe
 {
@@ -12,14 +13,15 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Name of save file
         /// </summary>
-        private static string FileSavesName { get; } = "save.xml";
+        private static string FileSavesName { get; } = "titactoe_save";
         /// <summary>
         /// Load file stream method
         /// </summary>
         /// <returns>Result of load file stream</returns>
         private static ProfileActionResult LoadFileStream()
         {
-            XmlSerializer formatter = new XmlSerializer(typeof(GameProfile));
+            //XmlSerializer formatter = new XmlSerializer(typeof(GameProfile));
+            BinaryFormatter formatter = new BinaryFormatter();
             ProfileActionResult actionResult = new ProfileActionResult();
             using (FileStream fs = new FileStream(FileSavesName, FileMode.Open))
             {
@@ -50,7 +52,8 @@ namespace Tic_Tac_Toe
         /// <returns>Result of save file stream</returns>
         private static ProfileActionResult SaveFileStream(GameProfile profile)
         {
-            XmlSerializer formatter = new XmlSerializer(typeof(GameProfile));
+            //XmlSerializer formatter = new XmlSerializer(typeof(GameProfile));
+            BinaryFormatter formatter = new BinaryFormatter();
             ProfileActionResult actionResult = new ProfileActionResult();
             using (FileStream fs = new FileStream(FileSavesName, FileMode.OpenOrCreate))
             {
