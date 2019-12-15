@@ -189,12 +189,14 @@ namespace Tic_Tac_Toe
                     if (GameField[firstIndex] == Player1.PlayerSign)
                     {
                         Winner = Player1;
-                        Win(Player1.TypeOfPlayer.ToString());
+                        //Win(Player1.TypeOfPlayer.ToString());
+                        Win(Player1.PlayerName);
                     }
                     else
                     {
                         Winner = Player2;
-                        Win(Player2.TypeOfPlayer.ToString());
+                        //Win(Player2.TypeOfPlayer.ToString());
+                        Win(Player2.PlayerName);
                     }
                     GameInProgress = false;
                     return true;
