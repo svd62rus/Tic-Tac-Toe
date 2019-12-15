@@ -66,24 +66,26 @@
             this.GamePanel.Controls.Add(this.Button0);
             this.GamePanel.Location = new System.Drawing.Point(13, 32);
             this.GamePanel.Name = "GamePanel";
-            this.GamePanel.Size = new System.Drawing.Size(347, 403);
+            this.GamePanel.Size = new System.Drawing.Size(347, 365);
             this.GamePanel.TabIndex = 0;
             // 
             // PlayerInfoLabel
             // 
             this.PlayerInfoLabel.AutoSize = true;
+            this.PlayerInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlayerInfoLabel.Location = new System.Drawing.Point(15, 333);
             this.PlayerInfoLabel.Name = "PlayerInfoLabel";
-            this.PlayerInfoLabel.Size = new System.Drawing.Size(35, 13);
+            this.PlayerInfoLabel.Size = new System.Drawing.Size(60, 24);
             this.PlayerInfoLabel.TabIndex = 10;
             this.PlayerInfoLabel.Text = "label1";
             // 
             // GameInfoLabel
             // 
             this.GameInfoLabel.AutoSize = true;
+            this.GameInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GameInfoLabel.Location = new System.Drawing.Point(15, 308);
             this.GameInfoLabel.Name = "GameInfoLabel";
-            this.GameInfoLabel.Size = new System.Drawing.Size(35, 13);
+            this.GameInfoLabel.Size = new System.Drawing.Size(60, 24);
             this.GameInfoLabel.TabIndex = 9;
             this.GameInfoLabel.Text = "label1";
             // 
@@ -203,7 +205,7 @@
             this.ScoreMenu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(384, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(384, 29);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -212,8 +214,9 @@
             this.MainMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SinglePlayerMenu,
             this.ExitMenu});
+            this.MainMenu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenu.Name = "MainMenu";
-            this.MainMenu.Size = new System.Drawing.Size(50, 20);
+            this.MainMenu.Size = new System.Drawing.Size(62, 25);
             this.MainMenu.Text = "Menu";
             // 
             // SinglePlayerMenu
@@ -222,8 +225,8 @@
             this.LowDifficult,
             this.HardDifficult});
             this.SinglePlayerMenu.Name = "SinglePlayerMenu";
-            this.SinglePlayerMenu.Size = new System.Drawing.Size(139, 22);
-            this.SinglePlayerMenu.Text = "Single game";
+            this.SinglePlayerMenu.Size = new System.Drawing.Size(180, 26);
+            this.SinglePlayerMenu.Text = "New game";
             // 
             // LowDifficult
             // 
@@ -248,8 +251,9 @@
             // 
             // ScoreMenu
             // 
+            this.ScoreMenu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ScoreMenu.Name = "ScoreMenu";
-            this.ScoreMenu.Size = new System.Drawing.Size(48, 20);
+            this.ScoreMenu.Size = new System.Drawing.Size(61, 25);
             this.ScoreMenu.Text = "Score";
             this.ScoreMenu.Click += new System.EventHandler(this.ScoreMenu_Click);
             // 
@@ -257,7 +261,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 461);
+            this.ClientSize = new System.Drawing.Size(384, 411);
             this.Controls.Add(this.GamePanel);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

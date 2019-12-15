@@ -16,7 +16,7 @@
         /// <summary>
         /// Current game
         /// </summary>
-        private Game game;
+        private readonly Game game;
         /// <summary>
         /// Constructor of class
         /// </summary>
@@ -30,12 +30,18 @@
         /// </summary>
         public void UpdateParameters()
         {
-            GameParameters = $"Mode: {game.GameType}";
+            //GameParameters = $"Mode: {game.GameType}";
+            GameParameters = string.Empty;
             if (game.GameType.Equals(Game.GameTypes.Single))
-                GameParameters += $", difficult: {game.Difficult}";
-            PlayerParameters = $"Player 1: {game.Player1.TypeOfPlayer}, " +
-                               $"player 2: {game.Player2.TypeOfPlayer}, " +
-                               $"current: {game.CurrentPlayer.TypeOfPlayer}";
+            {
+                //GameParameters += $", difficult: {game.Difficult}";
+                GameParameters += $"Difficult: {game.Difficult}";
+            }
+
+            //PlayerParameters = $"Player 1: {game.Player1.TypeOfPlayer}, " +
+            //$"player 2: {game.Player2.TypeOfPlayer}, " +
+            //$"current: {game.CurrentPlayer.TypeOfPlayer}";
+            PlayerParameters = $"Current player: {game.CurrentPlayer.PlayerName}";
         }
     }
 }

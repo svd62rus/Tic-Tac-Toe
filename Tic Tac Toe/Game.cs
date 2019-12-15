@@ -132,9 +132,10 @@ namespace Tic_Tac_Toe
                 GameField[i] = empty;
         }
         /// <summary>
-        /// Abstract select players method
+        /// Abstract select p[layers method
         /// </summary>
-        protected abstract void SelectPlayers();
+        /// <param name="playerName">Player name</param>
+        protected abstract void SelectPlayers(string playerName);
         /// <summary>
         /// Make player step method
         /// </summary>

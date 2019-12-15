@@ -108,7 +108,7 @@ namespace Tic_Tac_Toe
         /// <param name="difficult">Difficult of current game</param>
         private void StartGame(Enum difficult)
         {
-            game = new SinglePlayer(difficult);
+            game = new SinglePlayer(difficult, profile.PlayerName);
             CreateSubscribes();
             parameters = new Parameters(game);
             UpdateButtons();

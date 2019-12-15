@@ -38,10 +38,15 @@ namespace Tic_Tac_Toe
                 {"28",5},{"58",2},{"04",8},{"08",4},{"48",0},{"24",6},{"26",4}, {"46",2}
             };
         /// <summary>
+        /// Name of computer
+        /// </summary>
+        private readonly string botName = "Computer";
+        /// <summary>
         /// Constructor of single player mode
         /// </summary>
-        /// <param name="difficult">Single player difficult </param>
-        public SinglePlayer(Enum difficult)
+        /// <param name="difficult">Difficult of game</param>
+        /// <param name="humanName">Name of human</param>
+        public SinglePlayer(Enum difficult, string humanName)
         {
             GameType = GameTypes.Single;
             Difficult = difficult;
@@ -54,7 +59,7 @@ namespace Tic_Tac_Toe
                     logic = HardDifficultLogic;
                     break;
             }
-            SelectPlayers();
+            SelectPlayers(humanName);
             ClearGameField();
         }
         /// <summary>
@@ -124,13 +129,16 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Override select players method
         /// </summary>
-        protected override void SelectPlayers()
+        /// <param name="humanName">Name of human</param>
+        protected override void SelectPlayers(string humanName)
         {
             CurrentPlayer = Player1;
             Player1.TypeOfPlayer = PlayersType.Human;
             Player1.PlayerSign = cross;
+            Player1.PlayerName = humanName;
             Player2.TypeOfPlayer = PlayersType.Computer;
             Player2.PlayerSign = zero;
+            Player2.PlayerName = botName;
         }
         /// <summary>
         /// Override player step method

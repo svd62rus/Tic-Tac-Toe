@@ -15,5 +15,9 @@ namespace Tic_Tac_Toe
         /// Type of player
         /// </summary>
         public Enum TypeOfPlayer { get; set; }
+        /// <summary>
+        /// Name of player
+        /// </summary>
+        public string PlayerName { get; set; }
     }
 }
