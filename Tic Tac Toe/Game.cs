@@ -81,7 +81,7 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Sign of empty cell
         /// </summary>
-        protected string empty = "---";
+        protected string empty = " ";
         /// <summary>
         /// Cross sign
         /// </summary>
