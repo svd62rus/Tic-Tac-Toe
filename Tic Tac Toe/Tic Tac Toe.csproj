@@ -55,6 +55,11 @@
     <Compile Include="GameDataBus.cs" />
     <Compile Include="GameProfile.cs" />
     <Compile Include="GameResults.cs" />
+    <Compile Include="Localization\ENLocale.cs" />
+    <Compile Include="Localization\ILocalization.cs" />
+    <Compile Include="Localization\Locale.cs" />
+    <Compile Include="Localization\LocaleCreator.cs" />
+    <Compile Include="Localization\RULocale.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -1,4 +1,6 @@
-﻿namespace Tic_Tac_Toe
+﻿using Tic_Tac_Toe.Localization;
+
+namespace Tic_Tac_Toe
 {
     /// <summary>
     /// Supporting class. Game parameters.
@@ -28,20 +30,25 @@
         /// <summary>
         /// Update parameters method
         /// </summary>
-        public void UpdateParameters()
+        public void UpdateParameters(Locale locale)
         {
             //GameParameters = $"Mode: {game.GameType}";
             GameParameters = string.Empty;
             if (game.GameType.Equals(Game.GameTypes.Single))
             {
                 //GameParameters += $", difficult: {game.Difficult}";
-                GameParameters += $"Difficult: {game.Difficult}";
+                if(game.Difficult.Equals(Game.Difficults.Hard))
+                    GameParameters += $"{locale.GetDifficultText()}:" +
+                        $" {locale.GetCurrentGameHardDifficultText()}";
+                if (game.Difficult.Equals(Game.Difficults.Low))
+                    GameParameters += $"{locale.GetDifficultText()}:" +
+                        $" {locale.GetCurrentGameLowDifficultText()}";
             }
 
             //PlayerParameters = $"Player 1: {game.Player1.TypeOfPlayer}, " +
             //$"player 2: {game.Player2.TypeOfPlayer}, " +
             //$"current: {game.CurrentPlayer.TypeOfPlayer}";
-            PlayerParameters = $"Current player: {game.CurrentPlayer.PlayerName}";
+            PlayerParameters = $"{locale.GetPlayerText()}: {game.CurrentPlayer.PlayerName}";
         }
     }
 }

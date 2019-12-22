@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
+using Tic_Tac_Toe.Localization;
 using Tic_Tac_Toe.Utilites;
 
 namespace Tic_Tac_Toe
@@ -28,16 +29,32 @@ namespace Tic_Tac_Toe
         /// </summary>
         public GameProfile profile = new GameProfile();
         /// <summary>
+        /// Program localization settings
+        /// </summary>
+        private readonly Locale locale;
+        /// <summary>
         /// Constructor of form class
         /// </summary>
         public MainForm()
         {
             InitializeComponent();
+            locale = LocaleCreator.CreateLocale(LocaleCreator.InterfaceLanguage.en);
+            SetLocale(locale);
             ChangeGamePanelVisible(false);
             gameFieldButtons = new Button[9]
             {
                 Button0, Button1, Button2, Button3, Button4, Button5, Button6, Button7, Button8
             };
+        }
+        private void SetLocale(Locale locale)
+        {
+            MainMenu.Text = locale.GetMainMenuText();
+            SinglePlayerMenu.Text = locale.GetSinglePlayerMenuText();
+            LowDifficult.Text = locale.GetLowDifficultText();
+            HardDifficult.Text = locale.GetHardDifficultText();
+            ExitMenu.Text = locale.GetExitMenuText();
+            ScoreMenu.Text = locale.GetScoreMenuText();
+
         }
         /// <summary>
         /// Get game panel visible status method
@@ -108,7 +125,7 @@ namespace Tic_Tac_Toe
         /// <param name="difficult">Difficult of current game</param>
         private void StartGame(Enum difficult)
         {
-            game = new SinglePlayer(difficult, profile.PlayerName);
+            game = new SinglePlayer(difficult, profile.PlayerName, locale);
             CreateSubscribes();
             parameters = new Parameters(game);
             UpdateButtons();
@@ -131,9 +148,9 @@ namespace Tic_Tac_Toe
         {
             Enabled = true;
             profile.Draw(game.Difficult.ToString());
-            GameDataBus.SaveGameResultInScore(profile);
+            GameDataBus.SaveGameResultInScore(profile, locale);
             DeleteSubscribes();
-            GameDataBus.ShowResult(result);
+            GameDataBus.ShowResult(result, locale);
             GamePanel.Visible = false;
         }
         /// <summary>
@@ -146,16 +163,16 @@ namespace Tic_Tac_Toe
             if (game.Winner == game.Player1)
             {
                 profile.Win(game.Difficult.ToString());
-                GameDataBus.SaveGameResultInScore(profile);
+                GameDataBus.SaveGameResultInScore(profile, locale);
                 ChangeButtonColor(Color.Green);
             }
             else
             {
                 profile.Lose(game.Difficult.ToString());
-                GameDataBus.SaveGameResultInScore(profile);
+                GameDataBus.SaveGameResultInScore(profile, locale);
                 ChangeButtonColor(Color.Red);
             }
-            GameDataBus.ShowResult(result);
+            GameDataBus.ShowResult(result, locale);
             DeleteSubscribes();
             GamePanel.Visible = false;
         }
@@ -186,7 +203,7 @@ namespace Tic_Tac_Toe
         /// </summary>
         private void ShowParameters()
         {
-            parameters.UpdateParameters();
+            parameters.UpdateParameters(locale);
             GameInfoLabel.Text = parameters.GameParameters;
             PlayerInfoLabel.Text = parameters.PlayerParameters;
         }
@@ -211,7 +228,7 @@ namespace Tic_Tac_Toe
             int i = int.Parse(button.Tag.ToString());
             game.PlayerStep(i, out bool isPossible);
             if (!isPossible)
-                GameDataBus.ShowImpossibleStepMessage();
+                GameDataBus.ShowImpossibleStepMessage(locale);
             UpdateButtons();
             game.CheckGameStatus();
             if(game.GameInProgress && isPossible)
@@ -283,7 +300,7 @@ namespace Tic_Tac_Toe
             }
             else
             {
-                profile = GameDataBus.LoadGameResultInScore();
+                profile = GameDataBus.LoadGameResultInScore(locale);
             }
         }
         /// <summary>
@@ -293,7 +310,7 @@ namespace Tic_Tac_Toe
         /// <param name="e">Event</param>
         private void ExitMenu_Click(object sender, EventArgs e)
         {
-            GameDataBus.SaveGameResultInScore(profile);
+            GameDataBus.SaveGameResultInScore(profile, locale);
             Application.Exit();
         }
         /// <summary>
@@ -303,7 +320,7 @@ namespace Tic_Tac_Toe
         /// <param name="e">Param</param>
         private void ScoreMenu_Click(object sender, EventArgs e)
         {
-            GameDataBus.ShowScore(profile);
+            GameDataBus.ShowScore(profile, locale);
         }
     }
 }

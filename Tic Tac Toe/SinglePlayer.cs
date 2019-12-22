@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Tic_Tac_Toe.Localization;
 using Tic_Tac_Toe.Utilites;
 
 namespace Tic_Tac_Toe
@@ -40,13 +41,14 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Name of computer
         /// </summary>
-        private readonly string botName = "Computer";
+        public string BotName { get; set; }
         /// <summary>
         /// Constructor of single player mode
         /// </summary>
         /// <param name="difficult">Difficult of game</param>
         /// <param name="humanName">Name of human</param>
-        public SinglePlayer(Enum difficult, string humanName)
+        /// <param name="locale">Locale</param>
+        public SinglePlayer(Enum difficult, string humanName, Locale locale)
         {
             GameType = GameTypes.Single;
             Difficult = difficult;
@@ -59,6 +61,7 @@ namespace Tic_Tac_Toe
                     logic = HardDifficultLogic;
                     break;
             }
+            BotName = locale.GetBotNameText();
             SelectPlayers(humanName);
             ClearGameField();
         }
@@ -138,7 +141,7 @@ namespace Tic_Tac_Toe
             Player1.PlayerName = humanName;
             Player2.TypeOfPlayer = PlayersType.Computer;
             Player2.PlayerSign = zero;
-            Player2.PlayerName = botName;
+            Player2.PlayerName = BotName;
         }
         /// <summary>
         /// Override player step method

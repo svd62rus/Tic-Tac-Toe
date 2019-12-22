@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using Tic_Tac_Toe.Localization;
 
 namespace Tic_Tac_Toe
 {
@@ -11,23 +12,26 @@ namespace Tic_Tac_Toe
         /// Save game result in score method
         /// </summary>
         /// <param name="profile">Game profile</param>
-        public static void SaveGameResultInScore(GameProfile profile)
+        /// <param name="locale">Locale</param>
+        public static void SaveGameResultInScore(GameProfile profile, Locale locale)
         {
             var saveResult = SaveLoadProfile.Save(profile);
             if (saveResult.IsError)
             {
-                MessageBox.Show("Error of file save saving! Score is dropped.", "Error!");
+                MessageBox.Show(locale.GetSavesSavingErrorText(), locale.GetErrorText());
             }
-        }/// <summary>
+        }
+        /// <summary>
         /// Load game result in score method
         /// </summary>
+        /// <param name="locale">Locale</param>
         /// <returns>Game profile</returns>
-        public static GameProfile LoadGameResultInScore()
+        public static GameProfile LoadGameResultInScore(Locale locale)
         {
             var loadResult = SaveLoadProfile.Load();
             if (loadResult.IsError)
             {
-                MessageBox.Show("Error of file save loading! Score is dropped.", "Error!");
+                MessageBox.Show(locale.GetSavesLoadingErrorText(), locale.GetErrorText());
             }
             return loadResult.Profile;
         }
@@ -35,35 +39,45 @@ namespace Tic_Tac_Toe
         /// Show score method
         /// </summary>
         /// <param name="profile">Game profile</param>
-        public static void ShowScore(GameProfile profile)
+        /// <param name="locale">Locale</param>
+        public static void ShowScore(GameProfile profile, Locale locale)
         {
-            MessageBox.Show($"Profile: {profile.PlayerName}\n\n\n" +
-                               $"--Low difficult--\n" +
-                               $"Win: {profile.LowLevelScore.Win}\n" +
-                               $"Lose: {profile.LowLevelScore.Lose}\n" +
-                               $"Draw: {profile.LowLevelScore.Draw}\n\n" +
-                               $"--Hard difficult--\n" +
-                               $"Win: {profile.HardLevelScore.Win}\n" +
-                               $"Lose: {profile.HardLevelScore.Lose}\n" +
-                               $"Draw: {profile.HardLevelScore.Draw}\n", "Score");
+            string[] scoreTexts = locale.GetScoreWindowTexts();
+
+            /*Set score texts from massive
+            0-"Score", 1-"Profile", 2-"Low difficult", 3-"Win", 4-"Lose", 
+            5-"Draw", 6-"Hard difficult", 7-"Win", 8-"Lose", 9-"Draw"
+            */
+
+            MessageBox.Show($"{scoreTexts[1]}: {profile.PlayerName}\n\n\n" +
+                               $"-----{scoreTexts[2]}-----\n" +
+                               $"{scoreTexts[3]}: {profile.LowLevelScore.Win}\n" +
+                               $"{scoreTexts[4]}: {profile.LowLevelScore.Lose}\n" +
+                               $"{scoreTexts[5]}: {profile.LowLevelScore.Draw}\n\n" +
+                               $"-----{scoreTexts[6]}-----\n" +
+                               $"{scoreTexts[7]}: {profile.HardLevelScore.Win}\n" +
+                               $"{scoreTexts[8]}: {profile.HardLevelScore.Lose}\n" +
+                               $"{scoreTexts[9]}: {profile.HardLevelScore.Draw}\n", scoreTexts[0]);
         }
         /// <summary>
         /// Show game result method
         /// </summary>
         /// <param name="result">String result</param>
-        public static void ShowResult(string result)
+        /// <param name="locale">Locale</param>
+        public static void ShowResult(string result, Locale locale)
         {
             if(result.Equals("Draw"))
-                MessageBox.Show(result);
+                MessageBox.Show(locale.GetDrawText());
             else
-                MessageBox.Show(result + " win!");
+                MessageBox.Show(result + locale.GetWinText());
         }
         /// <summary>
         /// Show message about impossible step method
         /// </summary>
-        public static void ShowImpossibleStepMessage()
+        /// <param name="locale">Locale</param>
+        public static void ShowImpossibleStepMessage(Locale locale)
         {
-            MessageBox.Show("Такой ход невозможен!");
+            MessageBox.Show(locale.GetImpossibleStepText());
         }
     }
 }
