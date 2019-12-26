@@ -1,6 +1,6 @@
 ﻿namespace Tic_Tac_Toe
 {
-    partial class AddUser
+    partial class NewProfile
     {
         /// <summary>
         /// Required designer variable.

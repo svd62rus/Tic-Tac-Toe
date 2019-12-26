@@ -6,7 +6,7 @@ namespace Tic_Tac_Toe
     /// <summary>
     /// Add user form class
     /// </summary>
-    public partial class AddUser : Form
+    public partial class NewProfile : Form
     {
         /// <summary>
         /// Game profile variable
@@ -16,7 +16,7 @@ namespace Tic_Tac_Toe
         /// Constructor of form
         /// </summary>
         /// <param name="profile">Game profile for write information</param>
-        public AddUser(GameProfile profile)
+        public NewProfile(GameProfile profile)
         {
             this.profile = profile;
             InitializeComponent();

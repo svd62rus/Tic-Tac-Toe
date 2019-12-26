@@ -13,6 +13,10 @@ namespace Tic_Tac_Toe
         /// </summary>
         public string PlayerName { get; set; } = string.Empty;
         /// <summary>
+        /// Player language
+        /// </summary>
+        public string PlayerLocale { get; set; } = string.Empty;
+        /// <summary>
         /// Score for low difficult games
         /// </summary>
         public GameResults LowLevelScore { get; set; } = new GameResults();

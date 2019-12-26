@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddUser.cs">
+    <Compile Include="NewProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddUser.Designer.cs">
-      <DependentUpon>AddUser.cs</DependentUpon>
+    <Compile Include="NewProfile.Designer.cs">
+      <DependentUpon>NewProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="GameDataBus.cs" />
     <Compile Include="GameProfile.cs" />
@@ -76,8 +76,8 @@
     <Compile Include="Parameters.cs" />
     <Compile Include="Utilites\IMainForm.cs" />
     <Compile Include="Utilites\ISinglePlayer.cs" />
-    <EmbeddedResource Include="AddUser.resx">
-      <DependentUpon>AddUser.cs</DependentUpon>
+    <EmbeddedResource Include="NewProfile.resx">
+      <DependentUpon>NewProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
