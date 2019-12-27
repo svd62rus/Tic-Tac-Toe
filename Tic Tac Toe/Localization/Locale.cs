@@ -116,7 +116,11 @@ namespace Tic_Tac_Toe.Localization
             /// <summary>
             /// Language menu id
             /// </summary>
-            LanguageMenuID
+            LanguageMenuID,
+            /// <summary>
+            /// About menu id
+            /// </summary>
+            AboutTitleID
         };
         /// <summary>
         /// Localization texts dictionary
@@ -147,6 +151,7 @@ namespace Tic_Tac_Toe.Localization
             {LocaleIds.InputProfileNameID, string.Empty },
             {LocaleIds.CreateProfileButtonNameID, string.Empty },
             {LocaleIds.LanguageMenuID, string.Empty },
+            {LocaleIds.AboutTitleID, string.Empty }
         };
         /// <summary>
         /// Get main menu text
@@ -339,6 +344,14 @@ namespace Tic_Tac_Toe.Localization
         public string GetLanguageMenuText()
         {
             return localeDict[LocaleIds.LanguageMenuID];
+        }
+        /// <summary>
+        /// Get about menu title
+        /// </summary>
+        /// <returns></returns>
+        public string GetAboutMenuTitleText()
+        {
+            return localeDict[LocaleIds.AboutTitleID];
         }
     }
 }

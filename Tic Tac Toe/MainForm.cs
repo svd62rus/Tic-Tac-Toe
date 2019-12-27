@@ -55,8 +55,7 @@ namespace Tic_Tac_Toe
             ExitMenu.Text = locale.GetExitMenuText();
             LanguageMenu.Text = locale.GetLanguageMenuText();
             ScoreMenu.Text = locale.GetScoreMenuText();
-            
-
+            AboutMenu.Text = locale.GetAboutMenuTitleText();
         }
         /// <summary>
         /// Get game panel visible status method
@@ -374,6 +373,15 @@ namespace Tic_Tac_Toe
                 EnglishItem.Checked = false;
                 RussianItem.Checked = true;
             }
+        }
+        /// <summary>
+        /// About menu click event method
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AboutMenu_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Tic Tac Toe v1.1\rCopyright ©Sushkov D.I.  2019", locale.GetAboutMenuTitleText());
         }
     }
 }

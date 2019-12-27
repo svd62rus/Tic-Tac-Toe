@@ -35,6 +35,7 @@ namespace Tic_Tac_Toe.Localization
         private readonly string inputPlayerNameText = "Enter player name:";
         private readonly string createPlayerButtonText = "Create profile";
         private readonly string languageMenuText = "Language";
+        private readonly string aboutMenuText = "About";
         /// <summary>
         /// Constructor of english locale
         /// </summary>
@@ -64,6 +65,7 @@ namespace Tic_Tac_Toe.Localization
             localeDict[LocaleIds.InputProfileNameID] = inputPlayerNameText;
             localeDict[LocaleIds.CreateProfileButtonNameID] = createPlayerButtonText;
             localeDict[LocaleIds.LanguageMenuID] = languageMenuText;
+            localeDict[LocaleIds.AboutTitleID] = aboutMenuText;
 
             Localization = LocaleCreator.InterfaceLanguage.en;
         }

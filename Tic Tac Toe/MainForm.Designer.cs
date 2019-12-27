@@ -50,6 +50,7 @@
             this.LanguageMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.EnglishItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RussianItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AboutMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.GamePanel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -69,7 +70,7 @@
             this.GamePanel.Controls.Add(this.Button0);
             this.GamePanel.Location = new System.Drawing.Point(13, 32);
             this.GamePanel.Name = "GamePanel";
-            this.GamePanel.Size = new System.Drawing.Size(347, 365);
+            this.GamePanel.Size = new System.Drawing.Size(348, 360);
             this.GamePanel.TabIndex = 0;
             // 
             // PlayerInfoLabel
@@ -205,7 +206,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MainMenu,
-            this.LanguageMenu});
+            this.LanguageMenu,
+            this.AboutMenu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(384, 29);
@@ -284,10 +286,19 @@
             this.RussianItem.Text = "Русский";
             this.RussianItem.Click += new System.EventHandler(this.RussianItem_Click);
             // 
+            // AboutMenu
+            // 
+            this.AboutMenu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AboutMenu.Name = "AboutMenu";
+            this.AboutMenu.Size = new System.Drawing.Size(64, 25);
+            this.AboutMenu.Text = "About";
+            this.AboutMenu.Click += new System.EventHandler(this.AboutMenu_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Tic_Tac_Toe.Properties.Resources.back;
             this.ClientSize = new System.Drawing.Size(384, 411);
             this.Controls.Add(this.GamePanel);
             this.Controls.Add(this.menuStrip1);
@@ -331,6 +342,7 @@
         private System.Windows.Forms.ToolStripMenuItem LanguageMenu;
         private System.Windows.Forms.ToolStripMenuItem EnglishItem;
         private System.Windows.Forms.ToolStripMenuItem RussianItem;
+        private System.Windows.Forms.ToolStripMenuItem AboutMenu;
     }
 }
 
