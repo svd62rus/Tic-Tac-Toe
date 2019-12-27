@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.GamePanel = new System.Windows.Forms.Panel();
             this.PlayerInfoLabel = new System.Windows.Forms.Label();
             this.GameInfoLabel = new System.Windows.Forms.Label();
@@ -231,7 +232,7 @@
             this.LowDifficult,
             this.HardDifficult});
             this.SinglePlayerMenu.Name = "SinglePlayerMenu";
-            this.SinglePlayerMenu.Size = new System.Drawing.Size(180, 26);
+            this.SinglePlayerMenu.Size = new System.Drawing.Size(155, 26);
             this.SinglePlayerMenu.Text = "New game";
             // 
             // LowDifficult
@@ -251,14 +252,14 @@
             // ScoreMenu
             // 
             this.ScoreMenu.Name = "ScoreMenu";
-            this.ScoreMenu.Size = new System.Drawing.Size(180, 26);
+            this.ScoreMenu.Size = new System.Drawing.Size(155, 26);
             this.ScoreMenu.Text = "Score";
             this.ScoreMenu.Click += new System.EventHandler(this.ScoreMenu_Click);
             // 
             // ExitMenu
             // 
             this.ExitMenu.Name = "ExitMenu";
-            this.ExitMenu.Size = new System.Drawing.Size(180, 26);
+            this.ExitMenu.Size = new System.Drawing.Size(155, 26);
             this.ExitMenu.Text = "Exit";
             this.ExitMenu.Click += new System.EventHandler(this.ExitMenu_Click);
             // 
@@ -275,14 +276,14 @@
             // EnglishItem
             // 
             this.EnglishItem.Name = "EnglishItem";
-            this.EnglishItem.Size = new System.Drawing.Size(180, 26);
+            this.EnglishItem.Size = new System.Drawing.Size(137, 26);
             this.EnglishItem.Text = "English";
             this.EnglishItem.Click += new System.EventHandler(this.EnglishItem_Click);
             // 
             // RussianItem
             // 
             this.RussianItem.Name = "RussianItem";
-            this.RussianItem.Size = new System.Drawing.Size(180, 26);
+            this.RussianItem.Size = new System.Drawing.Size(137, 26);
             this.RussianItem.Text = "Русский";
             this.RussianItem.Click += new System.EventHandler(this.RussianItem_Click);
             // 
@@ -303,6 +304,7 @@
             this.Controls.Add(this.GamePanel);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "MainForm";
