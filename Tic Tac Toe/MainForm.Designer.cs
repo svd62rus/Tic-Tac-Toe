@@ -45,8 +45,11 @@
             this.SinglePlayerMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.LowDifficult = new System.Windows.Forms.ToolStripMenuItem();
             this.HardDifficult = new System.Windows.Forms.ToolStripMenuItem();
-            this.ExitMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.ScoreMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExitMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.LanguageMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.EnglishItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RussianItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GamePanel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -202,7 +205,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MainMenu,
-            this.ScoreMenu});
+            this.LanguageMenu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(384, 29);
@@ -213,6 +216,7 @@
             // 
             this.MainMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SinglePlayerMenu,
+            this.ScoreMenu,
             this.ExitMenu});
             this.MainMenu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenu.Name = "MainMenu";
@@ -231,31 +235,54 @@
             // LowDifficult
             // 
             this.LowDifficult.Name = "LowDifficult";
-            this.LowDifficult.Size = new System.Drawing.Size(100, 22);
+            this.LowDifficult.Size = new System.Drawing.Size(114, 26);
             this.LowDifficult.Text = "Low";
             this.LowDifficult.Click += new System.EventHandler(this.LowDifficult_Click);
             // 
             // HardDifficult
             // 
             this.HardDifficult.Name = "HardDifficult";
-            this.HardDifficult.Size = new System.Drawing.Size(100, 22);
+            this.HardDifficult.Size = new System.Drawing.Size(114, 26);
             this.HardDifficult.Text = "Hard";
             this.HardDifficult.Click += new System.EventHandler(this.HardDifficult_Click);
+            // 
+            // ScoreMenu
+            // 
+            this.ScoreMenu.Name = "ScoreMenu";
+            this.ScoreMenu.Size = new System.Drawing.Size(180, 26);
+            this.ScoreMenu.Text = "Score";
+            this.ScoreMenu.Click += new System.EventHandler(this.ScoreMenu_Click);
             // 
             // ExitMenu
             // 
             this.ExitMenu.Name = "ExitMenu";
-            this.ExitMenu.Size = new System.Drawing.Size(139, 22);
+            this.ExitMenu.Size = new System.Drawing.Size(180, 26);
             this.ExitMenu.Text = "Exit";
             this.ExitMenu.Click += new System.EventHandler(this.ExitMenu_Click);
             // 
-            // ScoreMenu
+            // LanguageMenu
             // 
-            this.ScoreMenu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ScoreMenu.Name = "ScoreMenu";
-            this.ScoreMenu.Size = new System.Drawing.Size(61, 25);
-            this.ScoreMenu.Text = "Score";
-            this.ScoreMenu.Click += new System.EventHandler(this.ScoreMenu_Click);
+            this.LanguageMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.EnglishItem,
+            this.RussianItem});
+            this.LanguageMenu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LanguageMenu.Name = "LanguageMenu";
+            this.LanguageMenu.Size = new System.Drawing.Size(90, 25);
+            this.LanguageMenu.Text = "Language";
+            // 
+            // EnglishItem
+            // 
+            this.EnglishItem.Name = "EnglishItem";
+            this.EnglishItem.Size = new System.Drawing.Size(180, 26);
+            this.EnglishItem.Text = "English";
+            this.EnglishItem.Click += new System.EventHandler(this.EnglishItem_Click);
+            // 
+            // RussianItem
+            // 
+            this.RussianItem.Name = "RussianItem";
+            this.RussianItem.Size = new System.Drawing.Size(180, 26);
+            this.RussianItem.Text = "Русский";
+            this.RussianItem.Click += new System.EventHandler(this.RussianItem_Click);
             // 
             // MainForm
             // 
@@ -301,6 +328,9 @@
         private System.Windows.Forms.Label PlayerInfoLabel;
         private System.Windows.Forms.ToolStripMenuItem ExitMenu;
         private System.Windows.Forms.ToolStripMenuItem ScoreMenu;
+        private System.Windows.Forms.ToolStripMenuItem LanguageMenu;
+        private System.Windows.Forms.ToolStripMenuItem EnglishItem;
+        private System.Windows.Forms.ToolStripMenuItem RussianItem;
     }
 }
 

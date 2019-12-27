@@ -4,6 +4,7 @@ using System.Threading;
 using System.Windows.Forms;
 using Tic_Tac_Toe.Localization;
 using Tic_Tac_Toe.Utilites;
+using static Tic_Tac_Toe.LocaleCreator;
 
 namespace Tic_Tac_Toe
 {
@@ -38,7 +39,7 @@ namespace Tic_Tac_Toe
         public MainForm()
         {
             InitializeComponent();
-            locale = LocaleCreator.CreateLocale(LocaleCreator.InterfaceLanguage.en);
+            locale = CreateLocale(InterfaceLanguage.en);
             ChangeGamePanelVisible(false);
             gameFieldButtons = new Button[9]
             {
@@ -52,7 +53,9 @@ namespace Tic_Tac_Toe
             LowDifficult.Text = locale.GetLowDifficultText();
             HardDifficult.Text = locale.GetHardDifficultText();
             ExitMenu.Text = locale.GetExitMenuText();
+            LanguageMenu.Text = locale.GetLanguageMenuText();
             ScoreMenu.Text = locale.GetScoreMenuText();
+            
 
         }
         /// <summary>
@@ -308,9 +311,9 @@ namespace Tic_Tac_Toe
                 profile = GameDataBus.LoadGameResultInScore(locale);
             }
 
-            locale = LocaleCreator.CreateLocale(profile.PlayerLocale);
+            locale = CreateLocale(profile.PlayerLocale);
             SetLocale(locale);
-
+            SetLanguageFlags(locale.Localization);
         }
         /// <summary>
         /// Main form exit event method
@@ -330,6 +333,47 @@ namespace Tic_Tac_Toe
         private void ScoreMenu_Click(object sender, EventArgs e)
         {
             GameDataBus.ShowScore(profile, locale);
+        }
+        /// <summary>
+        /// Set english language
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EnglishItem_Click(object sender, EventArgs e)
+        {
+            locale = CreateLocale(InterfaceLanguage.en);
+            SetLocale(locale);
+            GameDataBus.SaveGameResultInScore(profile, locale);
+            SetLanguageFlags(locale.Localization);
+        }
+        /// <summary>
+        /// Set russian language
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RussianItem_Click(object sender, EventArgs e)
+        {
+            locale = CreateLocale(InterfaceLanguage.ru);
+            SetLocale(locale);
+            GameDataBus.SaveGameResultInScore(profile, locale);
+            SetLanguageFlags(locale.Localization);
+        }
+        /// <summary>
+        /// Set language menu flags on UI
+        /// </summary>
+        /// <param name="localization"></param>
+        private void SetLanguageFlags(InterfaceLanguage localization)
+        {
+            if (localization.Equals(InterfaceLanguage.en))
+            {
+                RussianItem.Checked = false;
+                EnglishItem.Checked = true;
+            }
+            if (localization.Equals(InterfaceLanguage.ru))
+            {
+                EnglishItem.Checked = false;
+                RussianItem.Checked = true;
+            }
         }
     }
 }

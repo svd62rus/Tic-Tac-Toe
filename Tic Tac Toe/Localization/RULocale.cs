@@ -34,6 +34,7 @@ namespace Tic_Tac_Toe.Localization
         private readonly string drawCountText = "Ничьи";
         private readonly string inputPlayerNameText = "Введите имя игрока:";
         private readonly string createPlayerButtonText = "Создать профиль";
+        private readonly string languageMenuText = "Язык";
         /// <summary>
         /// Constructor of russian locale
         /// </summary>
@@ -62,6 +63,8 @@ namespace Tic_Tac_Toe.Localization
             localeDict[LocaleIds.DrawCountID] = drawCountText;
             localeDict[LocaleIds.InputProfileNameID] = inputPlayerNameText;
             localeDict[LocaleIds.CreateProfileButtonNameID] = createPlayerButtonText;
+            localeDict[LocaleIds.LanguageMenuID] = languageMenuText;
+
             Localization = LocaleCreator.InterfaceLanguage.ru;
         }
     }

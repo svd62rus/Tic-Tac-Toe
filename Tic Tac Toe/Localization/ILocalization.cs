@@ -31,5 +31,6 @@ namespace Tic_Tac_Toe.Localization
         string GetDrawCountText();
         string GetInputProfileNameText();
         string GetCreateProfileButtonText();
+        string GetLanguageMenuText();
     }
 }

@@ -23,6 +23,7 @@ namespace Tic_Tac_Toe
         /// <param name="locale">Locale</param>
         public static void SaveGameResultInScore(GameProfile profile, Locale locale)
         {
+            profile.PlayerLocale = locale.Localization;
             var saveResult = SaveLoadProfile.Save(profile);
             if (saveResult.IsError)
             {
