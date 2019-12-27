@@ -1,4 +1,5 @@
 ﻿using System;
+using static Tic_Tac_Toe.LocaleCreator;
 
 namespace Tic_Tac_Toe
 {
@@ -15,7 +16,7 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Player language
         /// </summary>
-        public string PlayerLocale { get; set; } = string.Empty;
+        public InterfaceLanguage PlayerLocale { get; set; }
         /// <summary>
         /// Score for low difficult games
         /// </summary>

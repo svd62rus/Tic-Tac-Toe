@@ -32,6 +32,8 @@ namespace Tic_Tac_Toe.Localization
         private readonly string winCountText = "Wins";
         private readonly string loseCountText = "Loses";
         private readonly string drawCountText = "Draw";
+        private readonly string inputPlayerNameText = "Enter player name:";
+        private readonly string createPlayerButtonText = "Create profile";
         /// <summary>
         /// Constructor of english locale
         /// </summary>
@@ -58,6 +60,9 @@ namespace Tic_Tac_Toe.Localization
             localeDict[LocaleIds.WinsCountID] = winCountText;
             localeDict[LocaleIds.LosesCountID] = loseCountText;
             localeDict[LocaleIds.DrawCountID] = drawCountText;
+            localeDict[LocaleIds.InputProfileNameID] = inputPlayerNameText;
+            localeDict[LocaleIds.CreateProfileButtonNameID] = createPlayerButtonText;
+            Localization = LocaleCreator.InterfaceLanguage.en;
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Tic_Tac_Toe.LocaleCreator;
 
 namespace Tic_Tac_Toe.Localization
 {
@@ -11,6 +12,10 @@ namespace Tic_Tac_Toe.Localization
     /// </summary>
     public class Locale
     {
+        /// <summary>
+        /// Locale string view (en, ru)
+        /// </summary>
+        public InterfaceLanguage Localization { get; protected set; }
         /// <summary>
         /// Text localization ids
         /// </summary>
@@ -99,7 +104,15 @@ namespace Tic_Tac_Toe.Localization
             /// <summary>
             /// Draw count text id
             /// </summary>
-            DrawCountID
+            DrawCountID,
+            /// <summary>
+            /// Input profile text id
+            /// </summary>
+            InputProfileNameID,
+            /// <summary>
+            /// Create profile button text id
+            /// </summary>
+            CreateProfileButtonNameID
         };
         /// <summary>
         /// Localization texts dictionary
@@ -127,11 +140,9 @@ namespace Tic_Tac_Toe.Localization
             {LocaleIds.WinsCountID, string.Empty },
             {LocaleIds.LosesCountID, string.Empty },
             {LocaleIds.DrawCountID, string.Empty },
+            {LocaleIds.InputProfileNameID, string.Empty },
+            {LocaleIds.CreateProfileButtonNameID, string.Empty },
         };
-        /// <summary>
-        /// Massive of score window texts
-        /// </summary>
-        protected string[] scoreWindowLocales = new string[10];
         /// <summary>
         /// Get main menu text
         /// </summary>
@@ -271,7 +282,7 @@ namespace Tic_Tac_Toe.Localization
         /// <summary>
         /// Get profile text
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Profile text</returns>
         public string GetProfileText()
         {
             return localeDict[LocaleIds.ProfileID];
@@ -279,7 +290,7 @@ namespace Tic_Tac_Toe.Localization
         /// <summary>
         /// Get wins count text
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Wins text</returns>
         public string GetWinsCountText()
         {
             return localeDict[LocaleIds.WinsCountID];
@@ -287,7 +298,7 @@ namespace Tic_Tac_Toe.Localization
         /// <summary>
         /// Get lose count text
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Loses text</returns>
         public string GetLosesCountText()
         {
             return localeDict[LocaleIds.LosesCountID];
@@ -295,10 +306,26 @@ namespace Tic_Tac_Toe.Localization
         /// <summary>
         /// Get draw count text
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Drw text</returns>
         public string GetDrawCountText()
         {
             return localeDict[LocaleIds.DrawCountID];
+        }
+        /// <summary>
+        /// Get input profile label text
+        /// </summary>
+        /// <returns>Label text</returns>
+        public string GetInputProfileNameText()
+        {
+            return localeDict[LocaleIds.InputProfileNameID];
+        }
+        /// <summary>
+        /// Get create profile button text
+        /// </summary>
+        /// <returns>Create profile button text</returns>
+        public string GetCreateProfileButtonText()
+        {
+            return localeDict[LocaleIds.CreateProfileButtonNameID];
         }
     }
 }

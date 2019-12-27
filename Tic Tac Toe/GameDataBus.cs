@@ -13,6 +13,10 @@ namespace Tic_Tac_Toe
         /// </summary>
         public static bool ProfileIsCreated { get; set; }
         /// <summary>
+        /// Temp game profile
+        /// </summary>
+        public static GameProfile TempProfile { get; set; }
+        /// <summary>
         /// Save game result in score method
         /// </summary>
         /// <param name="profile">Game profile</param>

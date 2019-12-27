@@ -31,7 +31,7 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Program localization settings
         /// </summary>
-        private readonly Locale locale;
+        private Locale locale;
         /// <summary>
         /// Constructor of form class
         /// </summary>
@@ -39,7 +39,6 @@ namespace Tic_Tac_Toe
         {
             InitializeComponent();
             locale = LocaleCreator.CreateLocale(LocaleCreator.InterfaceLanguage.en);
-            SetLocale(locale);
             ChangeGamePanelVisible(false);
             gameFieldButtons = new Button[9]
             {
@@ -294,16 +293,24 @@ namespace Tic_Tac_Toe
             if (!SaveLoadProfile.CheckExistFileSave())
             {
 #pragma warning disable IDE0067 // Dispose objects before losing scope
-                NewProfile addUserForm = new NewProfile(profile);
+                NewProfile addUserForm = new NewProfile(profile,locale);
 #pragma warning restore IDE0067 // Dispose objects before losing scope
                 addUserForm.ShowDialog();
                 if (!GameDataBus.ProfileIsCreated)
+                {
                     Close();
+                    return;
+                }                   
+                profile = GameDataBus.TempProfile;     
             }
             else
             {
                 profile = GameDataBus.LoadGameResultInScore(locale);
             }
+
+            locale = LocaleCreator.CreateLocale(profile.PlayerLocale);
+            SetLocale(locale);
+
         }
         /// <summary>
         /// Main form exit event method

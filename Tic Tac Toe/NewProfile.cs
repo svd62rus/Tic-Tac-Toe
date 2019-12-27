@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Tic_Tac_Toe.Localization;
 
 namespace Tic_Tac_Toe
 {
@@ -12,14 +13,18 @@ namespace Tic_Tac_Toe
         /// Game profile variable
         /// </summary>
         private GameProfile profile;
+        private Locale locale;
         /// <summary>
         /// Constructor of form
         /// </summary>
         /// <param name="profile">Game profile for write information</param>
-        public NewProfile(GameProfile profile)
+        /// <param name="locale">Locale</param>
+        public NewProfile(GameProfile profile, Locale locale)
         {
             this.profile = profile;
+            this.locale = locale;
             InitializeComponent();
+            SetLocale(locale);
             ButtonCreateProfile.Enabled = false;
         }
         /// <summary>
@@ -30,8 +35,10 @@ namespace Tic_Tac_Toe
         private void ButtonCreateProfile_Click(object sender, EventArgs e)
         {
             profile.PlayerName = TxtBoxPlayerName.Text;
+            profile.PlayerLocale = locale.Localization;
             SaveLoadProfile.Save(profile);
             GameDataBus.ProfileIsCreated = true;
+            GameDataBus.TempProfile = profile;
             Close();
         }
         /// <summary>
@@ -45,6 +52,41 @@ namespace Tic_Tac_Toe
                 ButtonCreateProfile.Enabled = false;
             else
                 ButtonCreateProfile.Enabled = true;
+        }
+        /// <summary>
+        /// English radio button event method
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RadioButtonEN_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RadioButtonEN.Checked)
+            {
+                locale = LocaleCreator.CreateLocale(LocaleCreator.InterfaceLanguage.en);
+                SetLocale(locale);
+            }
+        }
+        /// <summary>
+        /// Set locale method
+        /// </summary>
+        /// <param name="locale">Locale</param>
+        private void SetLocale(Locale locale)
+        {   
+            InputPlayerNameLabel.Text = locale.GetInputProfileNameText();
+            ButtonCreateProfile.Text = locale.GetCreateProfileButtonText();
+        }
+        /// <summary>
+        /// Russian radio button event method
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RadioButtonRU_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RadioButtonRU.Checked)
+            {
+                locale = LocaleCreator.CreateLocale(LocaleCreator.InterfaceLanguage.ru);
+                SetLocale(locale);
+            }
         }
     }
 }

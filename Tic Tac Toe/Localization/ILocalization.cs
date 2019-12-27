@@ -29,5 +29,7 @@ namespace Tic_Tac_Toe.Localization
         string GetWinsCountText();
         string GetLosesCountText();
         string GetDrawCountText();
+        string GetInputProfileNameText();
+        string GetCreateProfileButtonText();
     }
 }
