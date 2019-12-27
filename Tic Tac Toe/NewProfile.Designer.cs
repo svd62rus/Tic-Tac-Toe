@@ -65,7 +65,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(254, 131);
-            this.ControlBox = false;
             this.Controls.Add(this.ButtonCreateProfile);
             this.Controls.Add(this.TxtBoxPlayerName);
             this.Controls.Add(this.label1);
@@ -74,7 +73,7 @@
             this.MinimizeBox = false;
             this.Name = "NewProfile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Новый профиль";
+            this.Text = "Tic Tac Toe";
             this.ResumeLayout(false);
             this.PerformLayout();
 

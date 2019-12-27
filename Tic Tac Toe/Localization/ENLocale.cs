@@ -28,10 +28,10 @@ namespace Tic_Tac_Toe.Localization
         private readonly string savesSavingErrorText = "Error of file save saving! Score is dropped.";
         private readonly string savesLoadingErrorText = "Error of file save loading! Score is dropped.";
         private readonly string errorText = "Error!";
-        private readonly string[] scoreWindowTexts = new string[10]
-        {
-            "Score", "Profile", "Low difficult","Win", "Lose", "Draw", "Hard difficult", "Win", "Lose", "Draw"
-        };
+        private readonly string profileText = "Profile";
+        private readonly string winCountText = "Wins";
+        private readonly string loseCountText = "Loses";
+        private readonly string drawCountText = "Draw";
         /// <summary>
         /// Constructor of english locale
         /// </summary>
@@ -54,7 +54,10 @@ namespace Tic_Tac_Toe.Localization
             localeDict[LocaleIds.SavesSavingErrorID] = savesSavingErrorText;
             localeDict[LocaleIds.SavesLoadingErrorID] = savesLoadingErrorText;
             localeDict[LocaleIds.ErrorID] = errorText;
-            scoreWindowLocales = scoreWindowTexts;
+            localeDict[LocaleIds.ProfileID] = profileText;
+            localeDict[LocaleIds.WinsCountID] = winCountText;
+            localeDict[LocaleIds.LosesCountID] = loseCountText;
+            localeDict[LocaleIds.DrawCountID] = drawCountText;
         }
     }
 }

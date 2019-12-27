@@ -83,7 +83,23 @@ namespace Tic_Tac_Toe.Localization
             /// <summary>
             /// Error id
             /// </summary>
-            ErrorID
+            ErrorID,
+            /// <summary>
+            /// Profile text id
+            /// </summary>
+            ProfileID,
+            /// <summary>
+            /// Wins count text id
+            /// </summary>
+            WinsCountID,
+            /// <summary>
+            /// Loses count text id
+            /// </summary>
+            LosesCountID,
+            /// <summary>
+            /// Draw count text id
+            /// </summary>
+            DrawCountID
         };
         /// <summary>
         /// Localization texts dictionary
@@ -107,6 +123,10 @@ namespace Tic_Tac_Toe.Localization
             {LocaleIds.SavesSavingErrorID, string.Empty },
             {LocaleIds.SavesLoadingErrorID, string.Empty },
             {LocaleIds.ErrorID, string.Empty },
+            {LocaleIds.ProfileID, string.Empty },
+            {LocaleIds.WinsCountID, string.Empty },
+            {LocaleIds.LosesCountID, string.Empty },
+            {LocaleIds.DrawCountID, string.Empty },
         };
         /// <summary>
         /// Massive of score window texts
@@ -249,12 +269,36 @@ namespace Tic_Tac_Toe.Localization
             return localeDict[LocaleIds.ErrorID];
         }
         /// <summary>
-        /// Get score window texts
+        /// Get profile text
         /// </summary>
-        /// <returns>Massive of score window texts</returns>
-        public string[] GetScoreWindowTexts()
+        /// <returns></returns>
+        public string GetProfileText()
         {
-            return scoreWindowLocales;
+            return localeDict[LocaleIds.ProfileID];
+        }
+        /// <summary>
+        /// Get wins count text
+        /// </summary>
+        /// <returns></returns>
+        public string GetWinsCountText()
+        {
+            return localeDict[LocaleIds.WinsCountID];
+        }
+        /// <summary>
+        /// Get lose count text
+        /// </summary>
+        /// <returns></returns>
+        public string GetLosesCountText()
+        {
+            return localeDict[LocaleIds.LosesCountID];
+        }
+        /// <summary>
+        /// Get draw count text
+        /// </summary>
+        /// <returns></returns>
+        public string GetDrawCountText()
+        {
+            return localeDict[LocaleIds.DrawCountID];
         }
     }
 }

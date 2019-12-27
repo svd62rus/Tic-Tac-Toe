@@ -25,6 +25,9 @@ namespace Tic_Tac_Toe.Localization
         string GetSavesSavingErrorText();
         string GetSavesLoadingErrorText();
         string GetErrorText();
-        string[] GetScoreWindowTexts();
+        string GetProfileText();
+        string GetWinsCountText();
+        string GetLosesCountText();
+        string GetDrawCountText();
     }
 }

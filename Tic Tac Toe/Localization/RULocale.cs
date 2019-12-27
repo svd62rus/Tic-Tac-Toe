@@ -28,10 +28,10 @@ namespace Tic_Tac_Toe.Localization
         private readonly string savesSavingErrorText = "Ошибка сохранения в файл! Счет будет сброшен.";
         private readonly string savesLoadingErrorText = "Ошибка загрузки файла сохранения! Счет будет сброшен.";
         private readonly string errorText = "Ошибка!";
-        private readonly string[] scoreWindowTexts = new string[10]
-        {
-            "Счет", "Профиль", "Легко","Выйгрыши", "Проигрыши", "Ничьи", "Сложно", "Выйгрыши", "Проигрыши", "Ничьи"
-        };
+        private readonly string profileText = "Профиль";
+        private readonly string winCountText = "Выйгрыши";
+        private readonly string loseCountText = "Проигрыши";
+        private readonly string drawCountText = "Ничьи";
         /// <summary>
         /// Constructor of russian locale
         /// </summary>
@@ -54,7 +54,10 @@ namespace Tic_Tac_Toe.Localization
             localeDict[LocaleIds.SavesSavingErrorID] = savesSavingErrorText;
             localeDict[LocaleIds.SavesLoadingErrorID] = savesLoadingErrorText;
             localeDict[LocaleIds.ErrorID] = errorText;
-            scoreWindowLocales = scoreWindowTexts;
+            localeDict[LocaleIds.ProfileID] = profileText;
+            localeDict[LocaleIds.WinsCountID] = winCountText;
+            localeDict[LocaleIds.LosesCountID] = loseCountText ;
+            localeDict[LocaleIds.DrawCountID] = drawCountText;
         }
     }
 }

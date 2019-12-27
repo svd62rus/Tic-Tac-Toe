@@ -46,22 +46,16 @@ namespace Tic_Tac_Toe
         /// <param name="locale">Locale</param>
         public static void ShowScore(GameProfile profile, Locale locale)
         {
-            string[] scoreTexts = locale.GetScoreWindowTexts();
-
-            /*Set score texts from massive
-            0-"Score", 1-"Profile", 2-"Low difficult", 3-"Win", 4-"Lose", 
-            5-"Draw", 6-"Hard difficult", 7-"Win", 8-"Lose", 9-"Draw"
-            */
-
-            MessageBox.Show($"{scoreTexts[1]}: {profile.PlayerName}\n\n\n" +
-                               $"-----{scoreTexts[2]}-----\n" +
-                               $"{scoreTexts[3]}: {profile.LowLevelScore.Win}\n" +
-                               $"{scoreTexts[4]}: {profile.LowLevelScore.Lose}\n" +
-                               $"{scoreTexts[5]}: {profile.LowLevelScore.Draw}\n\n" +
-                               $"-----{scoreTexts[6]}-----\n" +
-                               $"{scoreTexts[7]}: {profile.HardLevelScore.Win}\n" +
-                               $"{scoreTexts[8]}: {profile.HardLevelScore.Lose}\n" +
-                               $"{scoreTexts[9]}: {profile.HardLevelScore.Draw}\n", scoreTexts[0]);
+            MessageBox.Show($"{locale.GetProfileText()}: {profile.PlayerName}\n\n\n" +
+                               $"-------{locale.GetLowDifficultText()}-------\n" +
+                               $"{locale.GetWinsCountText()}: {profile.LowLevelScore.Win}\n" +
+                               $"{locale.GetLosesCountText()}: {profile.LowLevelScore.Lose}\n" +
+                               $"{locale.GetDrawCountText()}: {profile.LowLevelScore.Draw}\n\n" +
+                               $"-------{locale.GetHardDifficultText()}-------\n" +
+                               $"{locale.GetWinsCountText()}: {profile.HardLevelScore.Win}\n" +
+                               $"{locale.GetLosesCountText()}: {profile.HardLevelScore.Lose}\n" +
+                               $"{locale.GetDrawCountText()}: {profile.HardLevelScore.Draw}\n",
+                               locale.GetScoreMenuText());
         }
         /// <summary>
         /// Show game result method
