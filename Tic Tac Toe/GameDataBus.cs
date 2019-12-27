@@ -9,6 +9,10 @@ namespace Tic_Tac_Toe
     static class GameDataBus
     {
         /// <summary>
+        /// Profile created or not
+        /// </summary>
+        public static bool ProfileIsCreated { get; set; }
+        /// <summary>
         /// Save game result in score method
         /// </summary>
         /// <param name="profile">Game profile</param>

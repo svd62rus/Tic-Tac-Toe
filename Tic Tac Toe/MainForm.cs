@@ -297,6 +297,8 @@ namespace Tic_Tac_Toe
                 NewProfile addUserForm = new NewProfile(profile);
 #pragma warning restore IDE0067 // Dispose objects before losing scope
                 addUserForm.ShowDialog();
+                if (!GameDataBus.ProfileIsCreated)
+                    Close();
             }
             else
             {

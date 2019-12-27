@@ -31,6 +31,7 @@ namespace Tic_Tac_Toe
         {
             profile.PlayerName = TxtBoxPlayerName.Text;
             SaveLoadProfile.Save(profile);
+            GameDataBus.ProfileIsCreated = true;
             Close();
         }
         /// <summary>

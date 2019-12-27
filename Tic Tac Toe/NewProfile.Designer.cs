@@ -60,7 +60,7 @@
             this.ButtonCreateProfile.UseVisualStyleBackColor = true;
             this.ButtonCreateProfile.Click += new System.EventHandler(this.ButtonCreateProfile_Click);
             // 
-            // AddUser
+            // NewProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -72,7 +72,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "AddUser";
+            this.Name = "NewProfile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Новый профиль";
             this.ResumeLayout(false);
