@@ -69,7 +69,7 @@
             this.GamePanel.Controls.Add(this.Button2);
             this.GamePanel.Controls.Add(this.Button1);
             this.GamePanel.Controls.Add(this.Button0);
-            this.GamePanel.Location = new System.Drawing.Point(13, 32);
+            this.GamePanel.Location = new System.Drawing.Point(12, 39);
             this.GamePanel.Name = "GamePanel";
             this.GamePanel.Size = new System.Drawing.Size(348, 360);
             this.GamePanel.TabIndex = 0;
@@ -211,7 +211,7 @@
             this.AboutMenu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(384, 29);
+            this.menuStrip1.Size = new System.Drawing.Size(369, 29);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -300,7 +300,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Tic_Tac_Toe.Properties.Resources.back;
-            this.ClientSize = new System.Drawing.Size(384, 411);
+            this.ClientSize = new System.Drawing.Size(369, 411);
             this.Controls.Add(this.GamePanel);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
