@@ -23,7 +23,7 @@ namespace Tic_Tac_Toe
             //XmlSerializer formatter = new XmlSerializer(typeof(GameProfile));
             BinaryFormatter formatter = new BinaryFormatter();
             ProfileActionResult actionResult = new ProfileActionResult();
-            using (FileStream fs = new FileStream(FileSavesName, FileMode.Open))
+            using (FileStream fs = new FileStream(GetFileSavePath(), FileMode.Open))
             {
                 actionResult.Profile = (GameProfile)formatter.Deserialize(fs);
                 actionResult.IsError = false;
@@ -55,7 +55,7 @@ namespace Tic_Tac_Toe
             //XmlSerializer formatter = new XmlSerializer(typeof(GameProfile));
             BinaryFormatter formatter = new BinaryFormatter();
             ProfileActionResult actionResult = new ProfileActionResult();
-            using (FileStream fs = new FileStream(FileSavesName, FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(GetFileSavePath(), FileMode.OpenOrCreate))
             {
                 formatter.Serialize(fs, profile);
                 actionResult.IsError = false;
@@ -112,7 +112,12 @@ namespace Tic_Tac_Toe
         /// <returns>Exist or not exist file save</returns>
         public static bool CheckExistFileSave()
         {
-            return File.Exists(FileSavesName);
+            return File.Exists(GetFileSavePath());
+        }
+        private static string GetFileSavePath()
+        {
+            string myDocuments = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            return Path.Combine(myDocuments, FileSavesName);
         }
     }
 }
