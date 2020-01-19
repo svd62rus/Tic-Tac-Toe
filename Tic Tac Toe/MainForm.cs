@@ -204,9 +204,12 @@ namespace Tic_Tac_Toe
         /// </summary>
         private void ShowParameters()
         {
-            parameters.UpdateParameters(locale);
-            GameInfoLabel.Text = parameters.GameParameters;
-            PlayerInfoLabel.Text = parameters.PlayerParameters;
+            if(parameters!=null)
+            {
+                parameters.UpdateParameters(locale);
+                GameInfoLabel.Text = parameters.GameParameters;
+                PlayerInfoLabel.Text = parameters.PlayerParameters;
+            }
         }
         /// <summary>
         /// Update text on buttons method
@@ -344,6 +347,9 @@ namespace Tic_Tac_Toe
             SetLocale(locale);
             GameDataBus.SaveGameResultInScore(profile, locale);
             SetLanguageFlags(locale.Localization);
+            if(game!=null)
+                ((SinglePlayer)game).ChangeBotNameWithLocale(locale);
+            ShowParameters();
         }
         /// <summary>
         /// Set russian language
@@ -356,6 +362,9 @@ namespace Tic_Tac_Toe
             SetLocale(locale);
             GameDataBus.SaveGameResultInScore(profile, locale);
             SetLanguageFlags(locale.Localization);
+            if (game!=null)
+                ((SinglePlayer)game).ChangeBotNameWithLocale(locale);
+            ShowParameters();
         }
         /// <summary>
         /// Set language menu flags on UI

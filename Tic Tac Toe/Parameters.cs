@@ -32,11 +32,9 @@ namespace Tic_Tac_Toe
         /// </summary>
         public void UpdateParameters(Locale locale)
         {
-            //GameParameters = $"Mode: {game.GameType}";
             GameParameters = string.Empty;
             if (game.GameType.Equals(Game.GameTypes.Single))
             {
-                //GameParameters += $", difficult: {game.Difficult}";
                 if(game.Difficult.Equals(Game.Difficults.Hard))
                     GameParameters += $"{locale.GetDifficultText()}:" +
                         $" {locale.GetCurrentGameHardDifficultText()}";
@@ -45,9 +43,6 @@ namespace Tic_Tac_Toe
                         $" {locale.GetCurrentGameLowDifficultText()}";
             }
 
-            //PlayerParameters = $"Player 1: {game.Player1.TypeOfPlayer}, " +
-            //$"player 2: {game.Player2.TypeOfPlayer}, " +
-            //$"current: {game.CurrentPlayer.TypeOfPlayer}";
             PlayerParameters = $"{locale.GetPlayerText()}: {game.CurrentPlayer.PlayerName}";
         }
     }

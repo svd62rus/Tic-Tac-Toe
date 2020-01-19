@@ -66,6 +66,15 @@ namespace Tic_Tac_Toe
             ClearGameField();
         }
         /// <summary>
+        /// Change bot name with current localization
+        /// </summary>
+        /// <param name="locale">Localization</param>
+        public void ChangeBotNameWithLocale(Locale locale)
+        {
+            BotName = locale.GetBotNameText();
+            Player2.PlayerName = BotName;
+        }
+        /// <summary>
         /// Get game type method
         /// </summary>
         /// <returns>game type</returns>
